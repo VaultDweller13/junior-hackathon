@@ -2,7 +2,7 @@
 
 ## Deploy
 
-[Click here]()
+[Click here](https://junior-hackathon-team-18.netlify.app)
 
 ## Starting app on a local machine
 
