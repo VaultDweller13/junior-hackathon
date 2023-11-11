@@ -1,10 +1,10 @@
-import { Card } from "./components/Card";
+import { MainLayout } from "./components/MainLayout";
 
 function App() {
   return (
-    <>
-      <Card iconNum="1" />
-    </>
+    <div className="container">
+      <MainLayout />
+    </div>
   );
 }
 
