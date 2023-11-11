@@ -1,7 +1,9 @@
+import { Card } from "./components/Card";
+
 function App() {
   return (
     <>
-      <h1>Команда 18</h1>
+      <Card iconNum="1" />
     </>
   );
 }
