@@ -1,0 +1,25 @@
+.header {
+  font-size: 40px;
+  text-align: center;
+  color: #fff;
+  letter-spacing: 0.1em;
+}
+
+.button {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 10px;
+  font-size: 20px;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  background: #fff;
+}
+
+.button:hover {
+  background: #f9ebde;
+}
+
+.field {
+  width: 350px;
+  height: 350px;
+}

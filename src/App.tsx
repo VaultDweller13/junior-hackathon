@@ -1,10 +1,10 @@
-import { Card } from "./components/Card";
+import MainLayout from "./components/UI/MainLayout";
 
 function App() {
   return (
-    <>
-      <Card iconNum="1" isFlipped={false} />
-    </>
+    <div className="container">
+      <MainLayout />
+    </div>
   );
 }
 
