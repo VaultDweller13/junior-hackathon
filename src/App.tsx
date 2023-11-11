@@ -1,11 +1,9 @@
-import { Card } from "./components/Card";
+import { MainLayout } from "./components/MainLayout";
 
-function App() {
+export default function App() {
   return (
-    <>
-      <Card iconNum="1" isFlipped={false} />
-    </>
+    <div className="container">
+      <MainLayout size={8} />
+    </div>
   );
 }
-
-export default App;
