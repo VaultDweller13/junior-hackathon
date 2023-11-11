@@ -1,10 +1,17 @@
 import styles from "./Card.module.css";
-import icon from "./family-svgrepo-com.svg";
 
-export const Card = () => {
+type CardProps = {
+  iconNum: string;
+};
+
+export const Card = ({ iconNum }: CardProps) => {
   return (
     <div className={styles.card}>
-      <img src={icon} alt="Card icon" className={styles.icon} />
+      <img
+        src={`/icons/${iconNum}.svg`}
+        alt="Card icon"
+        className={styles.icon}
+      />
     </div>
   );
 };
