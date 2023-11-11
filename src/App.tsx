@@ -1,8 +1,10 @@
+import MainLayout from "./components/UI/MainLayout";
+
 function App() {
   return (
-    <>
-      <h1>Команда 18</h1>
-    </>
+    <div className="container">
+      <MainLayout />
+    </div>
   );
 }
 
