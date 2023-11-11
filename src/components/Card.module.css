@@ -1,0 +1,19 @@
+.card {
+  display: flex;
+  place-content: center;
+
+  max-width: 150px;
+  aspect-ratio: 1/1;
+
+  border-radius: 5%;
+
+  background-color: rgb(191, 226, 255);
+}
+
+.card:hover {
+  background-color: rgb(164, 194, 219);
+}
+
+.icon {
+  max-width: 60%;
+}
