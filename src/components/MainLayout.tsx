@@ -1,29 +1,25 @@
-import { useState, useEffect } from "react";
+import { useState, useMemo } from "react";
 import { Card } from "./Card";
 import styles from "./MainLayout.module.css";
 
-export const MainLayout = () => {
-  const [cardData, setCardData] = useState<{ id: number; iconNum: string }[]>([]);
+interface MainLayoutProps {
+  size: number;
+}
 
-  // Уникальные иконки
-  const uniqueIcons = ["1", "2", "3", "4"];
+export const MainLayout: React.FC<MainLayoutProps> = ({ size }) => {
+  // Генерируем числа от 1 до size/2
+  const numbers = Array.from(Array(size / 2), (_, index) => index + 1);
 
-  // Генерируем случайные числа от 1 до 8 для распределения иконок
-  const generateRandomIcons = () => {
-    const icons = Array.from({ length: 8 }, (_, index) => uniqueIcons[index % uniqueIcons.length]);
-    return icons.sort(() => Math.random() - 0.5);
-  };
+  const memoizedCardData = useMemo(() => {
+    const generateRandomIcons = () => {
+      const icons = numbers.concat(numbers).sort(() => Math.random() - 0.5);
+      return icons.map((iconNum, id) => ({ id, iconNum: `${iconNum}`, isFlipped: false }));
+    };
 
-  useEffect(() => {
-    // Получаем случайные иконки
-    const randomIcons = generateRandomIcons();
+    return generateRandomIcons();
+  }, [numbers, size]);
 
-    // Создаем данные для каждой карточки
-    const cards = randomIcons.map((iconNum, index) => ({ id: index, iconNum }));
-
-    // Устанавливаем состояние с данными о карточках
-    setCardData(cards);
-  }, []);
+  const [cardData] = useState(memoizedCardData);
 
   return (
     <>
