@@ -40,4 +40,10 @@ public class UserController {
         return userService.findAll();
     }
 
+    @GetMapping("/leaderboard")
+    public Collection<UserDto> getLeaderboard() {
+        log.info("Получение таблицы лидеров");
+        return userService.findLeaderboard();
+    }
+
 }

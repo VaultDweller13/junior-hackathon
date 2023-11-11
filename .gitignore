@@ -30,4 +30,4 @@ dist-ssr
 /server/mvnw
 /server/mvnw.cmd
 /server/src/test/java/ru/hackathon/server/ServerApplicationTests.java
-/server/.mvn/wrapper/maven-wrapper.jar
+/db/hackathon01.mv.db

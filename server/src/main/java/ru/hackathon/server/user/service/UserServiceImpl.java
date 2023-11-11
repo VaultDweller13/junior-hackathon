@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import ru.hackathon.server.exception.ConflictException;
 import ru.hackathon.server.exception.NotFoundException;
 import ru.hackathon.server.user.dto.UserDto;
 import ru.hackathon.server.user.mapper.UserMapper;
@@ -23,6 +24,10 @@ public class UserServiceImpl {
 
     @Transactional
     public UserDto addUser(UserDto userDto) {
+        if (userRepository.findByName(userDto.getName()).isPresent()) {
+            throw new ConflictException("Пользователь с именем " + userDto.getName() + " уже существует");
+        }
+
         User user = UserMapper.toUser(userDto);
         return UserMapper.toUserDto(userRepository.save(user));
     }
@@ -33,6 +38,13 @@ public class UserServiceImpl {
 
     public List<UserDto> findAll() {
         return userRepository.findAll()
+                .stream()
+                .map(UserMapper::toUserDto)
+                .collect(Collectors.toUnmodifiableList());
+    }
+
+    public List<UserDto> findLeaderboard() {
+        return userRepository.findAllByOrderByScoreDesc()
                 .stream()
                 .map(UserMapper::toUserDto)
                 .collect(Collectors.toUnmodifiableList());
