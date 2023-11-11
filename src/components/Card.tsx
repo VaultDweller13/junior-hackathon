@@ -5,9 +5,10 @@ import { useSpring, a } from "@react-spring/web";
 type CardProps = {
   iconNum: string;
   isFlipped: boolean;
+  onFlip: (id: string) => void;
 };
 
-export const Card = ({ iconNum, isFlipped }: CardProps) => {
+export const Card = ({ iconNum, isFlipped, onFlip }: CardProps) => {
   const [isOpen, setIsOpen] = useState(isFlipped);
   const { transform, opacity } = useSpring({
     opacity: isOpen ? 0 : 1,
@@ -16,7 +17,10 @@ export const Card = ({ iconNum, isFlipped }: CardProps) => {
   });
 
   const flipCard = () => {
-    if (!isOpen) setIsOpen(true);
+    if (!isOpen) {
+      setIsOpen(true);
+      onFlip(iconNum);
+    }
   };
 
   return (
