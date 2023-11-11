@@ -12,6 +12,7 @@ import ru.hackathon.server.user.model.User;
 import ru.hackathon.server.user.repository.UserRepository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -24,12 +25,21 @@ public class UserServiceImpl {
 
     @Transactional
     public UserDto addUser(UserDto userDto) {
-        if (userRepository.findByName(userDto.getName()).isPresent()) {
-            throw new ConflictException("Пользователь с именем " + userDto.getName() + " уже существует");
+        Optional<User> existingUser = userRepository.findByName(userDto.getName());
+        if (existingUser.isPresent()) {
+            User user = existingUser.get();
+            if (userDto.getScore() > user.getScore()) {
+                user.setScore(userDto.getScore());
+                userRepository.save(user);
+                return UserMapper.toUserDto(user);
+            } else {
+                throw new ConflictException("Пользователь с именем " + userDto.getName() +
+                        " уже существует и его счет равен или больше введенного");
+            }
+        } else {
+            User user = UserMapper.toUser(userDto);
+            return UserMapper.toUserDto(userRepository.save(user));
         }
-
-        User user = UserMapper.toUser(userDto);
-        return UserMapper.toUserDto(userRepository.save(user));
     }
 
     public User getUserById(Long id) {
