@@ -5,6 +5,13 @@
   letter-spacing: 0.1em;
 }
 
+.info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30px;
+  color: #fff;
+}
+
 .button {
   padding: 15px 20px;
   border: none;
