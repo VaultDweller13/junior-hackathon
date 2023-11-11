@@ -1,4 +1,4 @@
-package ru.hackathon.server.model;
+package ru.hackathon.server.user.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

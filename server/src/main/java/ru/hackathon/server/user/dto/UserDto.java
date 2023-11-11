@@ -1,4 +1,4 @@
-package ru.hackathon.server.dto;
+package ru.hackathon.server.user.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,8 +1,8 @@
-package ru.hackathon.server.mapper;
+package ru.hackathon.server.user.mapper;
 
 import lombok.experimental.UtilityClass;
-import ru.hackathon.server.dto.UserDto;
-import ru.hackathon.server.model.User;
+import ru.hackathon.server.user.dto.UserDto;
+import ru.hackathon.server.user.model.User;
 
 @UtilityClass
 public class UserMapper {
