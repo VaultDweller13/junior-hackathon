@@ -8,7 +8,6 @@ type CardProps = {
 
 export const Card = ({ iconNum, isFlipped }: CardProps) => {
   const [isOpen, setIsOpen] = useState(isFlipped);
-  console.log("render", isOpen);
 
   const flipCard = () => {
     if (!isOpen) setIsOpen(true);
