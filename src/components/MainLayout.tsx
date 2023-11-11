@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { Card } from "./Card";
 import styles from "./MainLayout.module.css";
 
@@ -6,21 +7,35 @@ interface MainLayoutProps {
 }
 
 export const MainLayout = ({ size }: MainLayoutProps) => {
-  const fieldSize = Math.ceil(size / 2);
-  const numbers = Array.from(Array(fieldSize), (_, index) => index + 1);
+  const pairsNum = Math.ceil(size / 2);
+  const numbers = Array.from(Array(pairsNum), (_, index) => index + 1);
   let flippedCardsDiff = 0;
   let flippedCardsCounter = 0;
+  let firstFlippedCardCallback: Dispatch<SetStateAction<boolean>> | null = null;
+  let counter = pairsNum;
 
-  const onFlip = (id: string) => {
+  const onFlip = (id: string, setIsOpen: Dispatch<SetStateAction<boolean>>) => {
     const num = parseInt(id);
 
     if (!flippedCardsCounter) {
       flippedCardsDiff = num;
       flippedCardsCounter = 1;
+      firstFlippedCardCallback = setIsOpen;
     } else {
       if (!(flippedCardsDiff - num)) {
-        alert("bingo!");
+        counter--;
+        if (!counter) {
+          setTimeout(() => {
+            alert("Congratulations!");
+          }, 1000);
+        }
+      } else {
+        setTimeout(() => {
+          if (firstFlippedCardCallback) firstFlippedCardCallback(false);
+          setIsOpen(false);
+        }, 1000);
       }
+
       flippedCardsDiff = 0;
       flippedCardsCounter = 0;
     }

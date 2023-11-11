@@ -1,11 +1,11 @@
-import { useState } from "react";
+import { Dispatch, SetStateAction, useState } from "react";
 import styles from "./Card.module.css";
 import { useSpring, a } from "@react-spring/web";
 
 type CardProps = {
   iconNum: string;
   isFlipped: boolean;
-  onFlip: (id: string) => void;
+  onFlip: (id: string, setIsOpen: Dispatch<SetStateAction<boolean>>) => void;
 };
 
 export const Card = ({ iconNum, isFlipped, onFlip }: CardProps) => {
@@ -19,7 +19,7 @@ export const Card = ({ iconNum, isFlipped, onFlip }: CardProps) => {
   const flipCard = () => {
     if (!isOpen) {
       setIsOpen(true);
-      onFlip(iconNum);
+      onFlip(iconNum, setIsOpen);
     }
   };
 
