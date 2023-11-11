@@ -30,7 +30,7 @@ export const MainLayout = () => {
       <h2 className={styles.header}>Memory Game</h2>
       <div className={styles.field}>
         {cardData.map((card) => (
-          <Card key={card.id} iconNum={card.iconNum} />
+          <Card key={card.id} iconNum={card.iconNum} isFlipped={false} />
         ))}
       </div>
       <button className={styles.button}>Reset Game</button>
