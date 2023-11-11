@@ -1,13 +1,16 @@
 .card {
+  position: absolute;
   display: flex;
   place-content: center;
 
+  width: 100%;
   max-width: 100px;
   aspect-ratio: 1/1;
 
   border-radius: 5%;
 
   background-color: rgb(191, 226, 255);
+  cursor: pointer;
 }
 
 .card:hover {
@@ -16,4 +19,9 @@
 
 .icon {
   max-width: 60%;
+}
+
+.container {
+  position: relative;
+  max-width: 150px;
 }
