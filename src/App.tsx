@@ -1,11 +1,9 @@
-import MainLayout from "./components/MainLayout";
+import { MainLayout } from "./components/MainLayout";
 
-function App() {
+export default function App() {
   return (
     <div className="container">
       <MainLayout />
     </div>
   );
 }
-
-export default App;

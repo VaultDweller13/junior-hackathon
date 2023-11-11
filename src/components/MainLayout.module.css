@@ -5,13 +5,6 @@
   letter-spacing: 0.1em;
 }
 
-.info {
-  display: flex;
-  justify-content: space-between;
-  font-size: 30px;
-  color: #fff;
-}
-
 .button {
   padding: 15px 20px;
   border: none;
@@ -29,4 +22,11 @@
 .field {
   width: 350px;
   height: 350px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  grid-row-gap: 0px;
+  justify-content: center;
+  align-items: center;
 }
