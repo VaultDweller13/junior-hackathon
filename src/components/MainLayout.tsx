@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import { Card } from "./Card";
 import styles from "./MainLayout.module.css";
 
@@ -43,7 +43,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
     });
   };
 
-  useEffect(() => {
+  const createBoard = useCallback(() => {
     const numbers = Array.from(Array(pairsNum), (_, index) => index + 1);
 
     setCardData(
@@ -57,6 +57,10 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
         }))
     );
   }, [pairsNum]);
+
+  useEffect(() => {
+    createBoard();
+  }, [createBoard]);
 
   useEffect(() => {
     checkIfBoardFlipped(cardData);
@@ -105,7 +109,9 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
           />
         ))}
       </div>
-      <button className={styles.button}>Reset Game</button>
+      <button className={styles.button} onClick={createBoard}>
+        Reset Game
+      </button>
     </>
   );
 };
