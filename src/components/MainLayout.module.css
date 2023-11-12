@@ -24,11 +24,8 @@
   height: 350px;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 20px;
-  grid-row-gap: 0px;
-  justify-content: center;
-  align-items: center;
+  grid-template-rows: repeat(4, 1fr);
+  gap: 10px;
 }
 
 .field-disabled {
