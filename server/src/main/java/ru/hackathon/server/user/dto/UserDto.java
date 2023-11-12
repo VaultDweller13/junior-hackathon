@@ -19,7 +19,12 @@ public class UserDto {
     @Size(min = 1, max = 50)
     private String name;
     @NotNull
-    @Min(value = 0, message = "Счет должен быть положительным числом")
+    @Min(value = 0, message = "Счет должен быть больше или равен нулю")
     private Long score;
+    @NotNull
+    @Min(value = 1, message = "Количество ходов должно быть положительным числом")
+    private Long movesCount;
+    @Size(max = 50)
+    private String city;
 
 }
