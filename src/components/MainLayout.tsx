@@ -85,7 +85,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
       setScore((score) => score + 1);
 
       if (cardData[flippedPair[0]].iconNum === cardData[flippedPair[1]].iconNum) {
-        setScore((score) => score + 1);
+        setScore((score) => score);
       } else {
         const indexes = [flippedPair[0], flippedPair[1]];
         setIsFieldDisabled(true);
