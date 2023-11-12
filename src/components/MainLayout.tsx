@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Card } from "./Card";
+import { WinPopup } from "./WinPopup";
 import styles from "./MainLayout.module.css";
 
 interface MainLayoutProps {
@@ -17,6 +18,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
   const [cardData, setCardData] = useState<CardData[]>([]);
   const [isFieldDisabled, setIsFieldDisabled] = useState(false);
   const [score, setScore] = useState(0);
+  const [popupVisible, setPopupVisible] = useState(false);
   const flippedPairRef = useRef<number[] | null[]>([null, null]);
   const flippedPair = flippedPairRef.current;
   console.log(score);
@@ -55,9 +57,14 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
 
     if (cardData.every((item) => item.isFlipped)) {
       setTimeout(() => {
-        alert(`Congratulations! Your score is ${score} `);
+        setPopupVisible(true);
       }, 1000);
     }
+  };
+
+  const closePopup = () => {
+    setPopupVisible(false);
+    createBoard();
   };
 
   useEffect(() => {
@@ -75,9 +82,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
       flippedPair[0] = index;
     } else {
       flippedPair[1] = index;
-      if (
-        cardData[flippedPair[0]].iconNum === cardData[flippedPair[1]].iconNum
-      ) {
+      if (cardData[flippedPair[0]].iconNum === cardData[flippedPair[1]].iconNum) {
         setScore((score) => score + 1);
       } else {
         const indexes = [flippedPair[0], flippedPair[1]];
@@ -97,11 +102,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
     <>
       <h2 className={styles.header}>Memory Game</h2>
       <p className={styles.score}>Score: {score}</p>
-      <div
-        className={`${styles.field} ${
-          isFieldDisabled ? styles["field-disabled"] : ""
-        }`}
-      >
+      <div className={`${styles.field} ${isFieldDisabled ? styles["field-disabled"] : ""}`}>
         {cardData.map((data, index) => (
           <Card
             key={index}
@@ -115,6 +116,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
       <button className={styles.button} onClick={createBoard}>
         Reset Game
       </button>
+      {popupVisible && <WinPopup score={score} onClose={closePopup} />}
     </>
   );
 };
