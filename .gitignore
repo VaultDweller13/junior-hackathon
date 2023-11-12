@@ -22,3 +22,12 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+/server/db/filmorate.mv.db
+/db/filmorate.trace.db
+/server/.mvn/wrapper/maven-wrapper.jar
+/server/.mvn/wrapper/maven-wrapper.properties
+/server/mvnw
+/server/mvnw.cmd
+/server/src/test/java/ru/hackathon/server/ServerApplicationTests.java
+/db/hackathon.mv.db
+/server/db/hackathon.mv.db

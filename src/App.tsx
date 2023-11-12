@@ -1,9 +1,9 @@
-function App() {
+import { MainLayout } from "./components/MainLayout";
+
+export default function App() {
   return (
-    <>
-      <h1>Команда 18</h1>
-    </>
+    <div className="container">
+      <MainLayout size={16} />
+    </div>
   );
 }
-
-export default App;
