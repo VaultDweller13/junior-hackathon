@@ -1,7 +1,7 @@
 .header {
   font-size: 40px;
   text-align: center;
-  color: #fff;
+  color: rgb(131, 102, 138);
   letter-spacing: 0.1em;
 }
 
@@ -13,6 +13,7 @@
   letter-spacing: 0.1em;
   cursor: pointer;
   background: #fff;
+  color: rgb(131, 102, 138);
 }
 
 .button:hover {
@@ -20,12 +21,20 @@
 }
 
 .field {
-  width: 350px;
-  height: 350px;
+  width: 500px;
+  height: 500px;
+
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-template-rows: repeat(4, 1fr);
   gap: 10px;
+
+  padding: 30px;
+
+  border-radius: 5%;
+  background-color: rgb(131, 102, 138);
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
+    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .field-disabled {
@@ -34,5 +43,5 @@
 
 .score {
   margin: 0;
-  color: #fff;
+  color: rgb(131, 102, 138);
 }

@@ -10,7 +10,7 @@ body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: #f9ebde;
+  background: rgb(240, 247, 212);
 }
 
 .container {
@@ -21,6 +21,5 @@ body {
   flex-direction: column;
   justify-content: center;
   gap: 30px;
-  background: #815854;
   padding: 60px 100px;
 }
