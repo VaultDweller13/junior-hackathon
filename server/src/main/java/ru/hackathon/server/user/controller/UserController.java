@@ -24,23 +24,27 @@ public class UserController {
     @PostMapping()
     @ResponseStatus(HttpStatus.CREATED)
     public UserDto addUser(@Valid @RequestBody UserDto userDto) {
-        log.info("Добавление нового пользователя с именем " + userDto.getName() + " и количеством очков " + userDto.getScore());
+        log.info("Добавление нового пользователя с именем " + userDto.getName()
+                + " и количеством очков " + userDto.getScore());
         return userService.addUser(userDto);
     }
 
     @GetMapping("/{id}")
+    @ResponseStatus(HttpStatus.OK)
     public User getUserById(@PathVariable Long id) {
         log.info("Получение пользователя по ID " + id);
         return userService.getUserById(id);
     }
 
     @GetMapping()
+    @ResponseStatus(HttpStatus.OK)
     public Collection<UserDto> findAll() {
         log.info("Получение перечня всех пользователей");
         return userService.findAll();
     }
 
     @GetMapping("/leaderboard")
+    @ResponseStatus(HttpStatus.OK)
     public Collection<UserDto> getLeaderboard() {
         log.info("Получение таблицы лидеров");
         return userService.findLeaderboard();
