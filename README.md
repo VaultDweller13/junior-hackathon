@@ -34,7 +34,7 @@ pairs, memorize their positions, and uncover all cards with the minimum number o
 ## Contributors
 
 - [Artem](https://t.me/Vault_dweller13) - Frontend
-- [Eugene](https://t.me/pelipets) - Backend
+- [Evgeny](https://t.me/pelipets) - Backend
 - [Yegor](https://t.me/chewho) - Frontend
 
 Thank you for your interest in our project! Questions and suggestions are welcome.
