@@ -1,4 +1,4 @@
-package ru.hackathon.server.model;
+package ru.hackathon.server.user.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,5 +22,9 @@ public class User {
     private String name;
     @Column(name = "score")
     private Long score;
+    @Column(name = "moves_count")
+    private Long movesCount;
+    @Column(name = "city")
+    private String city;
 
 }
