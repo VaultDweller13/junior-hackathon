@@ -25,6 +25,7 @@ const checkIfBoardFlipped = (data: CardData[]) => {
 export const MainLayout = ({ size }: MainLayoutProps) => {
   const pairsNum = Math.ceil(size / 2);
   const [cardData, setCardData] = useState<CardData[]>([]);
+  const [isFieldDisabled, setIsFieldDisabled] = useState(false);
   const flippedPairRef = useRef<number[] | null[]>([null, null]);
   const flippedPair = flippedPairRef.current;
 
@@ -74,9 +75,11 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
         // update score
       } else {
         const indexes = [flippedPair[0], flippedPair[1]];
+        setIsFieldDisabled(true);
         setTimeout(() => {
           flipCard(indexes[0]);
           flipCard(indexes[1]);
+          setIsFieldDisabled(false);
         }, 750);
       }
       flippedPair[0] = null;
@@ -87,7 +90,11 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
   return (
     <>
       <h2 className={styles.header}>Memory Game</h2>
-      <div className={styles.field}>
+      <div
+        className={`${styles.field} ${
+          isFieldDisabled ? styles["field-disabled"] : ""
+        }`}
+      >
         {cardData.map((data, index) => (
           <Card
             key={index}

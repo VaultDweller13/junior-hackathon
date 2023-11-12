@@ -21,8 +21,10 @@ export const Card = ({ iconNum, index, isFlipped, onClick }: CardProps) => {
     }
   };
 
+  const cardClasses = `${styles.container} ${isFlipped ? styles.flipped : ""}`;
+
   return (
-    <div className={styles.container} onClick={flipCard}>
+    <div className={cardClasses} onClick={flipCard}>
       <a.div
         className={styles.card}
         style={{ opacity: opacity.to((o) => 1 - o), transform }}
