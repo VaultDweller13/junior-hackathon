@@ -33,12 +33,13 @@ pairs, memorize their positions, and uncover all cards with the minimum number o
 
 ## Memory Game Screenshots
 
-1. **Game Board Overview:**
+1. **Game Board Overview with Leaderboard:**
    - The first screenshot of the "Memory Game" displays a 4x4 grid.
    - A counter for card flips is located in the top left corner.
    - A button to start the game anew is positioned in the bottom center.
 
    ![Memory Game Board](./images/001.png)
+   ![Memory Game Board](./images/001_2.png)
 
 2. **Card Matching Process:**
    - In the second and third screenshots, it is evident that non-matching cards have closed.
@@ -52,6 +53,8 @@ pairs, memorize their positions, and uncover all cards with the minimum number o
    - The screen displays the total number of flips made during the game.
 
    ![Congratulations Screen](./images/004.png)
+
+4. 
 
 
 Thank you for your interest in our project! Questions and suggestions are welcome.
