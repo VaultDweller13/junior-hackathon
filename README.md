@@ -1,8 +1,47 @@
-# Junior hackathon
+# Project "Memory Game" by Team 18
+
+Welcome to the repository of the "Memory Game" project! This project is an exciting card-matching game where your goal
+is to uncover all cards in the fewest number of moves possible.
+
+## Technology Stack
+
+- **Frontend:** React + TypeScript, React-Spring is used for animations
+- **Backend:** Java, SpringBoot, Spring MVC, Spring Data JPA, Lombok, Slf4j, Logback
+- **Database:** H2
+
+## Project Overview
+
+"Memory Game" is an engaging game where cards are randomly placed on the game board. Your task is to open cards in
+pairs, memorize their positions, and uncover all cards with the minimum number of moves.
+
+### Features
+
+- **Displaying the Board:** Each round starts with a new random arrangement of cards.
+- **Opening Cards:** Players can open cards, attempting to find pairs.
+- **Closing Cards:** Unmatched cards automatically close, while pairs remain open.
+- **Move Count:** The system tracks the player's number of moves.
+- **Restarting the Game:** Players can start a new round at any time.
+- **Congratulations Screen:** After successfully completing the game, a congratulations screen is displayed.
+- **Leaderboard:** A rating of the best players and their best results is maintained.
+
+## How to Start the Game
+
+1. Clone the repository.
+2. Start the backend using SpringBoot.
+3. Start the frontend by opening `index.html` in your browser.
+4. Enjoy the game and try to beat the records!
+
+## Contributors
+
+- [Artem](https://t.me/Vault_dweller13) - Frontend
+- [Eugene](https://t.me/pelipets) - Backend
+- [Yegor](https://t.me/chewho) - Frontend
+
+Thank you for your interest in our project! Questions and suggestions are welcome.
 
 ## Deploy
 
-[Click here](https://junior-hackathon-team-18.netlify.app)
+[Click here to Start the Game](https://junior-hackathon-team-18.netlify.app)
 
 ## Starting app on a local machine
 
