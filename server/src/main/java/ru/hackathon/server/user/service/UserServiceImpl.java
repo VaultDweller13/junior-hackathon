@@ -54,7 +54,7 @@ public class UserServiceImpl {
     }
 
     public List<UserDto> findLeaderboard() {
-        return userRepository.findAllByOrderByScoreDesc()
+        return userRepository.findAllByOrderByMovesCountAsc()
                 .stream()
                 .map(UserMapper::toUserDto)
                 .collect(Collectors.toUnmodifiableList());
