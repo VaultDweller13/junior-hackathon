@@ -24,18 +24,35 @@ pairs, memorize their positions, and uncover all cards with the minimum number o
 - **Congratulations Screen:** After successfully completing the game, a congratulations screen is displayed.
 - **Leaderboard:** A rating of the best players and their best results is maintained.
 
-## How to Start the Game
-
-1. Clone the repository.
-2. Start the backend using SpringBoot.
-3. Start the frontend by opening `index.html` in your browser.
-4. Enjoy the game and try to beat the records!
-
 ## Contributors
 
 - [Artem](https://t.me/Vault_dweller13) - Frontend
 - [Evgeny](https://t.me/pelipets) - Backend
 - [Yegor](https://t.me/chewho) - Frontend
+
+
+## Memory Game Screenshots
+
+1. **Game Board Overview:**
+   - The first screenshot of the "Memory Game" displays a 4x4 grid.
+   - A counter for card flips is located in the top left corner.
+   - A button to start the game anew is positioned in the bottom center.
+
+   ![Memory Game Board](./images/001.png)
+
+2. **Card Matching Process:**
+   - In the second and third screenshots, it is evident that non-matching cards have closed.
+   - Matching cards remain open, allowing players to remember their positions.
+
+   ![Card Matching Process](./images/002.png)
+   ![Card Matching Process](./images/003.png)
+
+3. **Congratulations Screen:**
+   - The final screenshot features the congratulatory screen at the end of the game.
+   - The screen displays the total number of flips made during the game.
+
+   ![Congratulations Screen](./images/004.png)
+
 
 Thank you for your interest in our project! Questions and suggestions are welcome.
 
@@ -86,3 +103,43 @@ Thank you for your interest in our project! Questions and suggestions are welcom
    ```bash
    npm run lint
    ```
+
+## How to Start the Game
+
+1. Clone the repository.
+2. **Start the backend server:**
+    - Make sure you have Java installed on your machine.
+
+        - You need to install [Maven](https://maven.apache.org/download.cgi)
+        - Unzip the archive into the installation directory, for example, "C:\Program Files\maven" on Windows or /opt/maven on Linux.
+        - Set the M2_HOME environment variable to "C:\Program Files\maven".
+        - Set the PATH environment variable to "%M2_HOME%\bin".
+        - Verify the installation by typing the following command in the command prompt:
+          ```bash
+          mvn -version
+          ```
+
+    - Navigate to the `server` directory:
+      ```bash
+      cd server
+      ```
+
+        - Run Maven to clean and package the project:
+          ```bash
+          mvn clean package
+          ```
+
+        - Navigate to the `target` directory:
+          ```bash
+          cd target
+          ```
+
+        - Run the following command to start the backend server with the Java application:
+          ```bash
+          java -jar server-0.0.1-SNAPSHOT.jar
+          ```
+
+3. Start the frontend by opening `index.html` in your browser.
+4. Enjoy the game and try to beat the records!
+
+**Note:** If you are using a remote backend server, it is accessible at [http://45.8.248.224/](http://45.8.248.224/).
