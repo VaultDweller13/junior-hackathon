@@ -11,7 +11,7 @@ export const WinPopup: React.FC<WinPopupProps> = ({ score, onClose }) => {
   return (
     <div className={styles.popup}>
       <h3>Congratulations!</h3>
-      <p>Your score is {score}</p>
+      <p>You done it in {score} flips</p>
       <button onClick={onClose}>Close</button>
     </div>
   );

@@ -18,7 +18,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
   const [cardData, setCardData] = useState<CardData[]>([]);
   const [isFieldDisabled, setIsFieldDisabled] = useState(false);
   const [score, setScore] = useState(0);
-  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupVisible, setPopupVisible] = useState(true);
   const flippedPairRef = useRef<number[] | null[]>([null, null]);
   const flippedPair = flippedPairRef.current;
   console.log(score);
@@ -82,6 +82,8 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
       flippedPair[0] = index;
     } else {
       flippedPair[1] = index;
+      setScore((score) => score + 1);
+
       if (cardData[flippedPair[0]].iconNum === cardData[flippedPair[1]].iconNum) {
         setScore((score) => score + 1);
       } else {
@@ -101,7 +103,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
   return (
     <>
       <h2 className={styles.header}>Memory Game</h2>
-      <p className={styles.score}>Score: {score}</p>
+      <p className={styles.score}>Flips: {score}</p>
       <div className={`${styles.field} ${isFieldDisabled ? styles["field-disabled"] : ""}`}>
         {cardData.map((data, index) => (
           <Card
