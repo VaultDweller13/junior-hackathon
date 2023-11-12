@@ -31,3 +31,8 @@
 .field-disabled {
   pointer-events: none;
 }
+
+.score {
+  margin: 0;
+  color: #fff;
+}

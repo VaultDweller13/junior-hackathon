@@ -12,23 +12,14 @@ type CardData = {
   isFlipped: boolean;
 };
 
-const checkIfBoardFlipped = (data: CardData[]) => {
-  if (!data.length) return;
-
-  if (data.every((item) => item.isFlipped)) {
-    setTimeout(() => {
-      alert("Congratulations!");
-    }, 1000);
-  }
-};
-
 export const MainLayout = ({ size }: MainLayoutProps) => {
   const pairsNum = Math.ceil(size / 2);
   const [cardData, setCardData] = useState<CardData[]>([]);
   const [isFieldDisabled, setIsFieldDisabled] = useState(false);
+  const [score, setScore] = useState(0);
   const flippedPairRef = useRef<number[] | null[]>([null, null]);
   const flippedPair = flippedPairRef.current;
-
+  console.log(score);
   const flipCard = (index: number | null) => {
     if (index === null) return;
 
@@ -44,6 +35,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
   };
 
   const createBoard = useCallback(() => {
+    setScore(0);
     const numbers = Array.from(Array(pairsNum), (_, index) => index + 1);
 
     setCardData(
@@ -58,12 +50,22 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
     );
   }, [pairsNum]);
 
+  const checkIfBoardFlipped = () => {
+    if (!cardData.length) return;
+
+    if (cardData.every((item) => item.isFlipped)) {
+      setTimeout(() => {
+        alert(`Congratulations! Your score is ${score} `);
+      }, 1000);
+    }
+  };
+
   useEffect(() => {
     createBoard();
   }, [createBoard]);
 
   useEffect(() => {
-    checkIfBoardFlipped(cardData);
+    checkIfBoardFlipped();
   });
 
   const onCardClick = (index: number) => {
@@ -76,7 +78,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
       if (
         cardData[flippedPair[0]].iconNum === cardData[flippedPair[1]].iconNum
       ) {
-        // update score
+        setScore((score) => score + 1);
       } else {
         const indexes = [flippedPair[0], flippedPair[1]];
         setIsFieldDisabled(true);
@@ -94,6 +96,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
   return (
     <>
       <h2 className={styles.header}>Memory Game</h2>
+      <p className={styles.score}>Score: {score}</p>
       <div
         className={`${styles.field} ${
           isFieldDisabled ? styles["field-disabled"] : ""
