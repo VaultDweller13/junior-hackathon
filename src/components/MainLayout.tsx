@@ -2,6 +2,8 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Card } from "./Card";
 import { WinPopup } from "./WinPopup";
 import styles from "./MainLayout.module.css";
+import { Leaderboard } from "./Leaderboard";
+import { Sidebar } from "./Sidebar";
 
 interface MainLayoutProps {
   size: number;
@@ -20,8 +22,9 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
   const [score, setScore] = useState(0);
   const [popupVisible, setPopupVisible] = useState(false);
   const flippedPairRef = useRef<number[] | null[]>([null, null]);
+  const [isOpen, setIsOpen] = useState(false);
   const flippedPair = flippedPairRef.current;
-  console.log(score);
+
   const flipCard = (index: number | null) => {
     if (index === null) return;
 
@@ -67,6 +70,10 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
     createBoard();
   };
 
+  const handleSidebar = () => {
+    setIsOpen(!isOpen);
+  };
+
   useEffect(() => {
     createBoard();
   }, [createBoard]);
@@ -84,7 +91,9 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
       flippedPair[1] = index;
       setScore((score) => score + 1);
 
-      if (cardData[flippedPair[0]].iconNum === cardData[flippedPair[1]].iconNum) {
+      if (
+        cardData[flippedPair[0]].iconNum === cardData[flippedPair[1]].iconNum
+      ) {
         setScore((score) => score);
       } else {
         const indexes = [flippedPair[0], flippedPair[1]];
@@ -115,8 +124,22 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
         <span>ш</span>
         <span>и</span>
       </h2>
-      <p className={styles.score}>Ходов: {score}</p>
-      <div className={`${styles.field} ${isFieldDisabled ? styles["field-disabled"] : ""}`}>
+
+      <div className={styles.top}>
+        <p className={styles.score}>Ходов: {score}</p>
+
+        <button
+          className={styles["button-leaderboard"]}
+          onClick={handleSidebar}
+        >
+          Leaderboard
+        </button>
+      </div>
+      <div
+        className={`${styles.field} ${
+          isFieldDisabled ? styles["field-disabled"] : ""
+        }`}
+      >
         {cardData.map((data, index) => (
           <Card
             key={index}
@@ -131,6 +154,9 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
         Начать Заново
       </button>
       {popupVisible && <WinPopup score={score} onClose={closePopup} />}
+      <Sidebar isOpen={isOpen}>
+        <Leaderboard />
+      </Sidebar>
     </>
   );
 };
