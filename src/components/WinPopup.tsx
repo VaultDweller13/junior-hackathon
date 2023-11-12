@@ -10,9 +10,9 @@ interface WinPopupProps {
 export const WinPopup: React.FC<WinPopupProps> = ({ score, onClose }) => {
   return (
     <div className={styles.popup}>
-      <h3>Congratulations!</h3>
-      <p>You done it in {score} flips</p>
-      <button onClick={onClose}>Close</button>
+      <h3>Поздравляем!</h3>
+      <p>Вы нашли все совпадения за {score} ходов</p>
+      <button onClick={onClose}>Играть ещё</button>
     </div>
   );
 };

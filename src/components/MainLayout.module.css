@@ -2,7 +2,16 @@
   font-size: 40px;
   text-align: center;
   color: rgb(131, 102, 138);
-  letter-spacing: 0.1em;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.header span {
+  display: inline-block;
+  transition: transform 0.8s;
+}
+.header span:hover {
+  transform: rotateY(360deg);
 }
 
 .button {
@@ -14,10 +23,28 @@
   cursor: pointer;
   background: #fff;
   color: rgb(131, 102, 138);
+  transition: transform 0.3s ease-in-out;
+}
+
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25% {
+    transform: translateX(-5px);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  75% {
+    transform: translateX(-3px);
+  }
 }
 
 .button:hover {
   background: #f9ebde;
+  animation: shake 0.4s ease-in-out;
 }
 
 .field {
@@ -33,8 +60,8 @@
 
   border-radius: 5%;
   background-color: rgb(131, 102, 138);
-  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px,
-    rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px,
+    rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 }
 
 .field-disabled {
@@ -42,6 +69,6 @@
 }
 
 .score {
-  margin: 0;
   color: rgb(131, 102, 138);
+  font-size: 20px;
 }

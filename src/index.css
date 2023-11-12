@@ -7,10 +7,9 @@
 
 body {
   display: flex;
-  justify-content: center;
   align-items: center;
-  min-height: 100vh;
   background: rgb(240, 247, 212);
+  justify-content: center;
 }
 
 .container {
@@ -20,6 +19,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 30px;
-  padding: 60px 100px;
+  gap: 15px;
+  padding: 15px 100px;
+  align-items: center;
 }
