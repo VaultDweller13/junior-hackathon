@@ -2,6 +2,7 @@ import { useState, useEffect, useRef, useCallback } from "react";
 import { Card } from "./Card";
 import { WinPopup } from "./WinPopup";
 import styles from "./MainLayout.module.css";
+import { Leaderboard } from "./Leaderboard";
 
 interface MainLayoutProps {
   size: number;
@@ -84,7 +85,9 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
       flippedPair[1] = index;
       setScore((score) => score + 1);
 
-      if (cardData[flippedPair[0]].iconNum === cardData[flippedPair[1]].iconNum) {
+      if (
+        cardData[flippedPair[0]].iconNum === cardData[flippedPair[1]].iconNum
+      ) {
         setScore((score) => score);
       } else {
         const indexes = [flippedPair[0], flippedPair[1]];
@@ -116,7 +119,11 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
         <span>и</span>
       </h2>
       <p className={styles.score}>Ходов: {score}</p>
-      <div className={`${styles.field} ${isFieldDisabled ? styles["field-disabled"] : ""}`}>
+      <div
+        className={`${styles.field} ${
+          isFieldDisabled ? styles["field-disabled"] : ""
+        }`}
+      >
         {cardData.map((data, index) => (
           <Card
             key={index}
@@ -131,6 +138,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
         Начать Заново
       </button>
       {popupVisible && <WinPopup score={score} onClose={closePopup} />}
+      <Leaderboard />
     </>
   );
 };

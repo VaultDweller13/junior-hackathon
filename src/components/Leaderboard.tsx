@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import styles from "./Leaderboard.module.css";
 
 type UserData = {
   name: string;
@@ -11,14 +12,49 @@ const endpoint = "http://45.8.248.224/users";
 
 export const Leaderboard = () => {
   const [usersData, setUsersData] = useState<UserData[]>([]);
+  const [error, setError] = useState("");
+  const errorMessage = "Не удалось получить данные :(";
 
   useEffect(() => {
     const fetchUsersData = async () => {
-      const data = await fetch(endpoint, { mode: "cors" });
-      console.log(data);
+      const response = await fetch(endpoint, {
+        mode: "cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        setError("Network response was not OK");
+      }
+      const data = await response.json();
+
+      setUsersData(data);
     };
+
     fetchUsersData();
   }, []);
 
-  return <p>Leaderboard</p>;
+  return error ? (
+    <p>{errorMessage}</p>
+  ) : (
+    <table className={styles.table}>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>City</th>
+          <th>Moves</th>
+        </tr>
+      </thead>
+      <tbody>
+        {usersData.map((data, index) => (
+          <tr key={index}>
+            <th>{data.name}</th>
+            <th>{data.city}</th>
+            <th>{data.movesCount}</th>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
 };
