@@ -18,7 +18,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
   const [cardData, setCardData] = useState<CardData[]>([]);
   const [isFieldDisabled, setIsFieldDisabled] = useState(false);
   const [score, setScore] = useState(0);
-  const [popupVisible, setPopupVisible] = useState(true);
+  const [popupVisible, setPopupVisible] = useState(false);
   const flippedPairRef = useRef<number[] | null[]>([null, null]);
   const flippedPair = flippedPairRef.current;
   console.log(score);
