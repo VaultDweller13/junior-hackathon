@@ -102,8 +102,20 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
 
   return (
     <>
-      <h2 className={styles.header}>Memory Game</h2>
-      <p className={styles.score}>Flips: {score}</p>
+      <h2 className={styles.header}>
+        <span>П</span>
+        <span>е</span>
+        <span>р</span>
+        <span>е</span>
+        <span>в</span>
+        <span>е</span>
+        <span>р</span>
+        <span>т</span>
+        <span>ы</span>
+        <span>ш</span>
+        <span>и</span>
+      </h2>
+      <p className={styles.score}>Ходов: {score}</p>
       <div className={`${styles.field} ${isFieldDisabled ? styles["field-disabled"] : ""}`}>
         {cardData.map((data, index) => (
           <Card
@@ -116,7 +128,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
         ))}
       </div>
       <button className={styles.button} onClick={createBoard}>
-        Reset Game
+        Начать Заново
       </button>
       {popupVisible && <WinPopup score={score} onClose={closePopup} />}
     </>
