@@ -40,10 +40,10 @@ export const Leaderboard = () => {
   ) : (
     <table className={styles.table}>
       <thead>
-        <tr>
-          <th>Name</th>
-          <th>City</th>
-          <th>Moves</th>
+        <tr className={styles.header}>
+          <th>Имя</th>
+          <th>Город</th>
+          <th>Ходы</th>
         </tr>
       </thead>
       <tbody>
