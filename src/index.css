@@ -13,13 +13,21 @@ body {
 }
 
 .container {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   gap: 15px;
-  padding: 15px 100px;
+  padding: 10px 0px;
   align-items: center;
+}
+
+@media (max-width: 500px) {
+  .container {
+    gap: 50px;
+  }
+}
+@media (max-width: 450px) {
+  .container {
+    gap: 70px;
+  }
 }
