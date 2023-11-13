@@ -20,7 +20,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
   const [cardData, setCardData] = useState<CardData[]>([]);
   const [isFieldDisabled, setIsFieldDisabled] = useState(false);
   const [score, setScore] = useState(0);
-  const [popupVisible, setPopupVisible] = useState(false);
+  const [popupVisible, setPopupVisible] = useState(true);
   const flippedPairRef = useRef<number[] | null[]>([null, null]);
   const [isOpen, setIsOpen] = useState(false);
   const flippedPair = flippedPairRef.current;
@@ -91,9 +91,7 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
       flippedPair[1] = index;
       setScore((score) => score + 1);
 
-      if (
-        cardData[flippedPair[0]].iconNum === cardData[flippedPair[1]].iconNum
-      ) {
+      if (cardData[flippedPair[0]].iconNum === cardData[flippedPair[1]].iconNum) {
         setScore((score) => score);
       } else {
         const indexes = [flippedPair[0], flippedPair[1]];
@@ -128,18 +126,11 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
       <div className={styles.top}>
         <p className={styles.score}>Ходов: {score}</p>
 
-        <button
-          className={styles["button-leaderboard"]}
-          onClick={handleSidebar}
-        >
+        <button className={styles["button-leaderboard"]} onClick={handleSidebar}>
           Leaderboard
         </button>
       </div>
-      <div
-        className={`${styles.field} ${
-          isFieldDisabled ? styles["field-disabled"] : ""
-        }`}
-      >
+      <div className={`${styles.field} ${isFieldDisabled ? styles["field-disabled"] : ""}`}>
         {cardData.map((data, index) => (
           <Card
             key={index}
