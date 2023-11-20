@@ -130,16 +130,14 @@ export const MainLayout = ({ size }: MainLayoutProps) => {
 
         <button
           className={styles["button-leaderboard"]}
-          onClick={handleSidebar}
-        >
+          onClick={handleSidebar}>
           Leaderboard
         </button>
       </div>
       <div
         className={`${styles.field} ${
           isFieldDisabled ? styles["field-disabled"] : ""
-        }`}
-      >
+        }`}>
         {cardData.map((data, index) => (
           <Card
             key={index}

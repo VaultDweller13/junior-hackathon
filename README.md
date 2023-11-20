@@ -1,3 +1,7 @@
+## Deploy
+
+[Click here to Start the Game](https://imaginative-pothos-2e8e22.netlify.app/)
+
 # Project "Memory Game" by Team 18
 
 Welcome to the repository of the "Memory Game" project! This project is an exciting card-matching game where your goal
@@ -56,10 +60,6 @@ pairs, memorize their positions, and uncover all cards with the minimum number o
    ![Congratulations Screen](./images/004.png)
 
 Thank you for your interest in our project! Questions and suggestions are welcome.
-
-## Deploy
-
-[Click here to Start the Game](https://junior-hackathon-team-18.netlify.app)
 
 ## Starting app on a local machine
 
